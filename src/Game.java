@@ -1,16 +1,17 @@
-import java.util.Scanner;
+import personnage.Personnage;
+
 import java.util.concurrent.ThreadLocalRandom;
+import personnage.Personnage;
 
 public class Game {
     Boolean gameHasStarted = false;
-    Integer position;
+    static Integer position;
 
 
     public static void main(String[] args) {
         Game game = new Game();
-        Personnage player = new Personnage();
         Menu menu = new Menu();
-        player = menu.createPersonnage();
+        Personnage player = menu.createPersonnage();
         player.setNom();
         game.startGame();
         while (menu.rollDice()){
@@ -25,17 +26,28 @@ public class Game {
         return position = 1;
     }
 
+    public static void controle(int pos) throws PersonnageHorsPlateauException {
+        if (pos > 64)
+            throw new PersonnageHorsPlateauException("You are out of board");
+    }
+
     public void rollDice() {
-        if (position <= 64) {
-            int randomNum = ThreadLocalRandom.current().nextInt(1, 6 + 1);
-            int lastPos = position;
-            position += randomNum;
-            System.out.println("Your position was: " + lastPos + " . You rolled a: " + randomNum + " and moved to: " + position);
-        }else {
-            System.out.println("You got to the 64th position");
+        try {
+            controle(position);
+        }catch (PersonnageHorsPlateauException e) {
+            System.out.println("You are out of board :" + position);
+        }
+            if (position < 64) {
+                int randomNum = ThreadLocalRandom.current().nextInt(1, 6 + 1);
+                int lastPos = position;
+                position += randomNum;
+                System.out.println("Your position was: " + lastPos + " . You rolled a: " + randomNum + " and moved to: " + position);
+            }else if (position == 64){
+                System.out.println("You WON!");
+            }
         }
 
     }
 
 
-}
+

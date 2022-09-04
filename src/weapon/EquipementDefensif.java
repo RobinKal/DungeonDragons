@@ -1,9 +1,11 @@
+package weapon;
+
 public class EquipementDefensif {
     String type;
     String nom;
     Integer niveauDefense;
 
-    EquipementDefensif(String type){
+    public EquipementDefensif(String type){
         if (type == "Bouclier" ){
             niveauDefense = 10;
             nom = "Bouclier";
@@ -11,5 +13,10 @@ public class EquipementDefensif {
             niveauDefense = 15;
             nom = "Philtre";
         }
+    }
+
+    public EquipementDefensif(){}
+    public String getNom(){
+        return this.nom;
     }
 }

@@ -1,6 +1,10 @@
+package personnage;
+
+import weapon.*;
+
 import java.util.Scanner;
 
-public class Personnage {
+public abstract class Personnage {
     Scanner myObj = new Scanner(System.in);
     Integer type;
     String nom;
@@ -9,19 +13,19 @@ public class Personnage {
     EquipementOffensif weapon;
     EquipementDefensif defWeapon;
 
-    Personnage(Integer type, String nom) {
+    public Personnage(Integer type, String nom) {
         this.nom = nom;
         this.type = type;
         if (type == 1) {
             niveauDeVie = 10;
             forceDattaque = 10;
-            weapon = new EquipementOffensif("Arme");
-            defWeapon = new EquipementDefensif("Bouclier");
+            weapon = new Arme("Arme");
+            defWeapon = new Bouclier("Bouclier");
         } else if (type == 2) {
             niveauDeVie = 6;
             forceDattaque = 15;
-            weapon = new EquipementOffensif("Sort");
-            defWeapon = new EquipementDefensif("Philtre");
+            weapon = new Sort("Sort");
+            defWeapon = new Philtre("Philtre");
 
         }
     }
@@ -30,11 +34,11 @@ public class Personnage {
         this.nom = nom;
     }
 
-    Personnage() {
+    public Personnage() {
     }
 
     public String toString(){
-        return "Personnage: " + nom + ", Niveau de Vie: " + niveauDeVie + ", Force d'attaque: " + forceDattaque + ", Arme: " + weapon.nom + ", Defensif: " + defWeapon.nom;
+        return "Personnage: " + nom + ", Niveau de Vie: " + niveauDeVie + ", Force d'attaque: " + forceDattaque + ", Arme: " + weapon.getNom() + ", Defensif: " + defWeapon.getNom();
     }
 
     public void setNom() {

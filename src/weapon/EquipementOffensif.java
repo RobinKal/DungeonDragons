@@ -1,9 +1,11 @@
+package weapon;
+
 public class EquipementOffensif {
     String type;
     String nom;
     Integer niveauAttaque;
 
-    EquipementOffensif(String type){
+    public EquipementOffensif(String type){
         if (type == "Arme" ){
             niveauAttaque = 10;
             nom = "Arme";
@@ -11,6 +13,9 @@ public class EquipementOffensif {
             niveauAttaque = 15;
             nom = "Sort";
         }
+    }
+    public EquipementOffensif(){
+
     }
     public String getNom(){
         return this.nom;

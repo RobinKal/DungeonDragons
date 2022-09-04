@@ -1,3 +1,7 @@
+import personnage.Guerrier;
+import personnage.Magicien;
+import personnage.Personnage;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -14,12 +18,11 @@ public class Menu {
         String name = myObj.nextLine();
 
         // Create Character for user
-        Personnage player1;
-        if (name.equals("")) {
-            player1 = new Personnage(type, "Player1");
-        } else {
-            player1 = new Personnage(type, name);
-        }
+        Personnage player1 = switch (type){
+            case 1 -> new Guerrier(name);
+            case 2 -> new Magicien(name);
+            default -> null;
+        };
 
         // Output input by user
 //        System.out.println("User's choice - Name: " + name);
