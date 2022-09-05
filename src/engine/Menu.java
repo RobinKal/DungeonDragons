@@ -1,8 +1,9 @@
+package engine;
+
 import personnage.Guerrier;
 import personnage.Magicien;
 import personnage.Personnage;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -39,16 +40,11 @@ public class Menu {
         return player1;
     }
 
-    public Boolean rollDice() {
-        Boolean shouldRoll;
-        Scanner myObj = new Scanner(System.in);
+    public boolean shouldRollDice() {
+        boolean shouldRoll;
         System.out.println("Press Y to roll :");
         String ans = myObj.nextLine();
-        if (Objects.equals(ans, "Y")) {
-            shouldRoll = true;
-        } else {
-            shouldRoll = false;
-        }
+        shouldRoll = ans.equals("Y");
         return shouldRoll;
     }
 

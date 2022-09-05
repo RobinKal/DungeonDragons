@@ -1,3 +1,5 @@
+package engine;
+
 public class PersonnageHorsPlateauException extends Exception{
     public PersonnageHorsPlateauException(){
         super();

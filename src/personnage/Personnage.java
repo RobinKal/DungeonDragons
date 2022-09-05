@@ -13,23 +13,6 @@ public abstract class Personnage {
     EquipementOffensif weapon;
     EquipementDefensif defWeapon;
 
-    public Personnage(Integer type, String nom) {
-        this.nom = nom;
-        this.type = type;
-        if (type == 1) {
-            niveauDeVie = 10;
-            forceDattaque = 10;
-            weapon = new Arme("Arme");
-            defWeapon = new Bouclier("Bouclier");
-        } else if (type == 2) {
-            niveauDeVie = 6;
-            forceDattaque = 15;
-            weapon = new Sort("Sort");
-            defWeapon = new Philtre("Philtre");
-
-        }
-    }
-
     Personnage(String nom) {
         this.nom = nom;
     }
@@ -47,5 +30,13 @@ public abstract class Personnage {
            this.nom = myObj.nextLine();
            System.out.println(this.toString());
        }
+    }
+
+    public Integer getNiveauDeVie() {
+        return niveauDeVie;
+    }
+
+    public void addHealth(int health){
+        this.niveauDeVie += health;
     }
 }
