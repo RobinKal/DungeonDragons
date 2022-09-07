@@ -1,9 +1,6 @@
 package engine;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DataBase {
     private static Connection connection;
@@ -49,5 +46,25 @@ public class DataBase {
             int rowsDeleted = statement.executeUpdate();
             System.out.println("Rows deleted: " + rowsDeleted);
         }
+    }
+
+    public static void readData() throws SQLException {
+        System.out.println("Reading data...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT * FROM Hero
+                """)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String type = resultSet.getString(2);
+                String name = resultSet.getString(3);
+                int niveauVie = resultSet.getInt(4);
+                int niveauForce = resultSet.getInt(5);
+                String weapon = resultSet.getString(6);
+                String defWeapon = resultSet.getString(7);
+                System.out.println("Personnage -> " + name + " / Type: " + type + " / HP: " + niveauVie + " / Force: " + niveauForce + " / Compétence: " + weapon + " / Defense: " + defWeapon);
+            }
+            System.out.println("Data reading done.");
+        }
+
     }
 }

@@ -31,7 +31,7 @@ public class Menu {
             case 2 -> DataBase.createDatabasePersonnage("Magicien", name, 6, 14, "Sort", "Philtre");
         }
 
-        System.out.println(player1);
+        DataBase.readData();
         return player1;
     }
 
