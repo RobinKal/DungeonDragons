@@ -61,7 +61,7 @@ public class DataBase {
                 int niveauForce = resultSet.getInt(5);
                 String weapon = resultSet.getString(6);
                 String defWeapon = resultSet.getString(7);
-                System.out.println("Personnage -> " + name + " / Type: " + type + " / HP: " + niveauVie + " / Force: " + niveauForce + " / Compétence: " + weapon + " / Defense: " + defWeapon);
+                System.out.println("\t >Personnage -> " + name + " / Type: " + type + " / HP: " + niveauVie + " / Force: " + niveauForce + " / Compétence: " + weapon + " / Defense: " + defWeapon);
             }
             System.out.println("Data reading done.");
         }

@@ -18,10 +18,10 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Game {
     private final List<Case> plateau = new ArrayList<>();
-    GameState state = GameState.CREATION;
-    Menu menu = new Menu();
-    Scanner sc = new Scanner(System.in);
-    Integer position;
+    private GameState state = GameState.CREATION;
+    private Menu menu = new Menu();
+    private Scanner sc = new Scanner(System.in);
+    private Integer position;
     private Personnage player;
 
     /**

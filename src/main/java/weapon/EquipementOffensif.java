@@ -1,9 +1,9 @@
 package weapon;
 
 public class EquipementOffensif {
-    String type;
-    String nom;
-    Integer niveauAttaque;
+    private String type;
+    private String nom;
+    public Integer niveauAttaque;
 
     public EquipementOffensif(String type){
         if (type == "Arme" ){

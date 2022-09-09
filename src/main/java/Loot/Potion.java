@@ -4,7 +4,7 @@ import lalala.Case;
 import personnage.Personnage;
 
 public class Potion implements Case {
-    Integer healingPower = 0;
+    private Integer healingPower = 0;
 
     public Potion(Integer healing) {
         this.healingPower = healing;

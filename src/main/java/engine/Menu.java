@@ -1,6 +1,5 @@
 package engine;
 
-import com.sun.tools.javac.Main;
 import personnage.Guerrier;
 import personnage.Magicien;
 import personnage.Personnage;
@@ -10,7 +9,7 @@ import java.util.Scanner;
 
 
 public class Menu {
-    Scanner myObj = new Scanner(System.in);
+    private Scanner myObj = new Scanner(System.in);
     public Personnage createPersonnage() throws SQLException {
 
         System.out.println("Enter character type ( 1 = Guerrier / 2 = Magicien) and name:");
@@ -32,13 +31,21 @@ public class Menu {
         }
 
         DataBase.readData();
+        System.out.println("Write 'infos' at anytime to show infos about your character");
         return player1;
     }
 
     public boolean shouldRollDice() {
-        System.out.println("Press Y to roll :");
+        System.out.println("Press Y to roll or info to show your character infos :");
         String ans = myObj.nextLine();
         return ans.equals("Y");
+    }
+
+    public void shouldDisplayInfos() throws SQLException {
+        String ans = myObj.nextLine();
+        if (ans.equals("infos")){
+            DataBase.readData();
+        }
     }
 
     public int inputStartGame() {

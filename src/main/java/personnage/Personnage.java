@@ -5,13 +5,13 @@ import weapon.*;
 import java.util.Scanner;
 
 public abstract class Personnage {
-    Scanner myObj = new Scanner(System.in);
-    Integer type;
-    String nom;
-    Integer niveauDeVie;
-    Integer forceDattaque;
-    EquipementOffensif weapon;
-    EquipementDefensif defWeapon;
+    private Scanner myObj = new Scanner(System.in);
+    private Integer type;
+    private String nom;
+    public Integer niveauDeVie;
+    public Integer forceDattaque;
+    public EquipementOffensif weapon;
+    public EquipementDefensif defWeapon;
 
     Personnage(String nom) {
         this.nom = nom;

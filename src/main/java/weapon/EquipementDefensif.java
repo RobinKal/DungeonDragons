@@ -1,9 +1,9 @@
 package weapon;
 
 public class EquipementDefensif {
-    String type;
-    String nom;
-    Integer niveauDefense;
+    private String type;
+    private String nom;
+    public Integer niveauDefense;
 
     public EquipementDefensif(String type){
         if (type == "Bouclier" ){
